@@ -11,9 +11,8 @@ export default function CurrencyConverter() {
   const [amount, setAmount] = useState<number>(100);
   const [convertedAmount, setConvertedAmount] = useState<number | null>(null);
   const [isResultVisible, setIsResultVisible] = useState<boolean>(false);
-
-   const { exchangeRates, currencyCodes } = useCurrencyConverter(baseCurrency); //fetch data
-
+  const { exchangeRates, currencyCodes } = useCurrencyConverter(baseCurrency); //fetch data
+  
   const handleConvert = () => {
     if (!baseCurrency || !targetCurrency) {
       return;
