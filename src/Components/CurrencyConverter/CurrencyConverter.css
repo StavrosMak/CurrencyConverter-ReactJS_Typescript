@@ -1,0 +1,53 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;1,300&display=swap');
+.CurrencyConverter {
+    box-shadow: 4px 4px 8px 0 rgba(0, 0, 0, 0.2);
+    border-radius: 13px;
+    background-color: #1a202c;
+    width: 400px;
+    height: 450px;
+    color: #fff;
+    align-self: center;
+    font-family: 'Roboto', sans-serif;
+}
+
+.CurrencyConverter_Header {
+    color: #FFFFFF;
+    text-align: center;
+    padding: 1.1em;
+}
+
+.formContent {
+    display: flex;
+    color: #fff;
+    color: #fff !important;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.convertBtn {
+    width: 100px;
+    background-color: black;
+    outline: none;
+    border: none;
+    color: #fff;
+    margin: auto;
+    padding: 1em;
+    cursor: pointer;
+    align-self: center;
+}
+
+.results {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+ }
+
+.rate{
+    padding: 1em;
+    width: 120px;
+    text-align: center;
+     border: 1px solid rgba(255,255,255, .3);
+}
