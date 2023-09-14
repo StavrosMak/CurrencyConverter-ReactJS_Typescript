@@ -3,16 +3,17 @@ import { FormControl, Input, InputLabel, Button } from '@mui/material';
 import language from '../../Data/Language';
 import SelectionComponent from '../SelectionComponent/SelectionComponent';
 import useCurrencyConverter from '../../Hooks/useCurrencyConverter';
+import { motion } from 'framer-motion'
 import './CurrencyConverter.css';
 
 export default function CurrencyConverter() {
   const [baseCurrency, setBaseCurrency] = useState<string>('');
   const [targetCurrency, setTargetCurrency] = useState<string>('');
-  const [amount, setAmount] = useState<number>(100);
+  const [amount, setAmount] = useState<number>(0);
   const [convertedAmount, setConvertedAmount] = useState<number | null>(null);
   const [isResultVisible, setIsResultVisible] = useState<boolean>(false);
   const { exchangeRates, currencyCodes } = useCurrencyConverter(baseCurrency); //fetch data
-  
+
   const handleConvert = () => {
     if (!baseCurrency || !targetCurrency) {
       return;
@@ -43,7 +44,6 @@ export default function CurrencyConverter() {
           <Input
             inputProps={{ sx: { color: 'white' } }}
             style={{ borderColor: '#fff' }}
-            value={amount}
             onChange={(e) => setAmount(parseFloat(e.target.value) || 0)}
           />
         </FormControl>
@@ -70,10 +70,17 @@ export default function CurrencyConverter() {
           Convert
         </Button>
         {isResultVisible && (
-          <div className='results'>
-            <span> {amount} {baseCurrency} is approximately {convertedAmount} {targetCurrency};</span>
-            <span className='rate'>Rate:{exchangeRates[targetCurrency].toFixed(2)}</span>
-          </div>
+          <motion.div
+            className='results'
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }} 
+            transition={{ duration: 0.1 }} 
+          >
+            <span>
+              {amount} {baseCurrency} is approximately {convertedAmount} {targetCurrency}
+            </span>
+            <span className='rate'>Rate: {exchangeRates[targetCurrency].toFixed(2)}</span>
+          </motion.div>
         )}
       </div>
     </div>
